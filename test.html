@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Animated Flex Cards</title>
+</head>
+<style>
+.wrapper {
+    
+}
+.container {
+    display: inline-flex;
+}
+label {
+    height: 450px;
+    width: 100px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 30px;
+    margin-left: 30px;
+    transition: .6s ease-in-out;
+    box-shadow: 0 0 15px black;
+}
+img {
+    height: 450px;
+	width: 600px
+}
+input {
+    display: none;
+}
+input:checked + label {
+    width: 600px;
+	
+}
+</style>
+<body>
+<div class="wrapper">
+<div class="container">
+<input type="radio" name="slide" id="c1" checked>
+<label for="c1">
+<img src="featured1.jpg">
+</label>
+<input type="radio" name="slide" id="c2" >
+<label for="c2">
+<img src="featured2.jpg">
+</label>
+<input type="radio" name="slide" id="c3" >
+<label for="c3">
+<img src="featured3.jpg">
+</label>
+<input type="radio" name="slide" id="c4" >
+<label for="c4">
+<img src="featured4.jpg">
+</label>
+<input type="radio" name="slide" id="c5" >
+<label for="c5">
+<img src="featured5.jpg">
+</label>
+</div>
+</div>
+<script>
+        const radios = document.querySelectorAll('input[name="slide"]');
+        let currentIndex = 0;
+
+        // Function to toggle the radio buttons
+        function toggleRadio() {
+            radios[currentIndex].checked = true;
+            currentIndex = (currentIndex + 1) % radios.length;
+        }
+
+        // Automatically toggle the radio buttons every 3 seconds
+        setInterval(toggleRadio, 3000);
+    </script>
+
+</body>
+</html>
